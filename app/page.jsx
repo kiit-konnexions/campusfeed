@@ -1,7 +1,9 @@
+import HeroSection from '@/components/sections/HeroSection';
+
 export default function Landing() {
   return (
-    <div>
-      Campus Feed Landing Page
-    </div>
+    <>
+      <HeroSection />
+    </>
   );
 }
