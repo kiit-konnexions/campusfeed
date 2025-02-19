@@ -3,29 +3,26 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export function FeatureCard({id, title, description, icon}) {
+export function FeatureCard({ id, title, description, icon }) {
   return (
-    <div className="rounded-2xl py-8 px-10 bg-background w-full min-h-fit flex flex-col border-[#8690b1] border-2 items-start justify-between">
+    <div className="flex min-h-fit w-full flex-col items-start justify-between rounded-2xl border-2 border-[#8690b1] bg-background px-10 py-8">
       <h1 className="text-3xl font-bold">{title}</h1>
-      <p className="text-left mt-10 text-xl font-thin text-gray-700">
+      <p className="mt-10 text-left text-xl font-thin text-gray-700">
         {description}
       </p>
-      <div className="mt-20 flex items-center justify-between w-full">
+      <div className="mt-20 flex w-full items-center justify-between">
         <Image
           src={icon}
           height={60}
           width={60}
           alt="icon"
-          className="object-contain shrink-0 p-3 border-[#8690b1] border-1 bg-gradient-to-tr from-[#8690b1] to-transparent shadow-inner rounded-2xl mb-4 fill-white"
+          className="border-1 mb-4 shrink-0 rounded-2xl border-[#8690b1] bg-gradient-to-tr from-[#8690b1] to-transparent fill-white object-contain p-3 shadow-inner"
         />
-        <span className="font-semibold">
-          FEATURE {id}
-        </span>
+        <span className="font-semibold">FEATURE {id}</span>
       </div>
     </div>
-  )
+  );
 }
-
 
 export default function Features() {
   const [features] = useState([
@@ -63,23 +60,23 @@ export default function Features() {
           alt="ellipse"
           width={1440}
           height={578}
-          className="relative opacity-50 right-[calc(50%-11rem)] aspect-square w-[36.125rem] translate-x-[100%] sm:right-[calc(50%-45rem)] sm:w-[60.1875rem] "
+          className="relative right-[calc(50%-11rem)] aspect-square w-[36.125rem] translate-x-[100%] opacity-50 sm:right-[calc(50%-45rem)] sm:w-[60.1875rem]"
         />
       </div>
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-2xl text-center">
-           <h6 className="text-base/normal font-sans mb-2 hidden md:block font-normal text-slate-600 uppercase">
+          <h6 className="mb-2 hidden font-sans text-base/normal font-normal uppercase text-slate-600 md:block">
             What sets us apart
           </h6>
-          <h1 className="text-5xl font-semibold font-sans text-pretty">
+          <h1 className="text-pretty font-sans text-5xl font-semibold">
             Features
           </h1>
-          <h3 className="mt-6 text-7 font-sans text-slate-600">
+          <h3 className="text-7 mt-6 font-sans text-slate-600">
             We provide a wide range of features to make your experience better.
           </h3>
         </div>
-        <div className="mt-6 flex flex-col items-center justify-center min-h-[50vh] py-2">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:grid-cols-3">
+        <div className="mt-6 flex min-h-[50vh] flex-col items-center justify-center py-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-3">
             {features.map((feature, index) => (
               <FeatureCard key={index} id={index + 1} {...feature} />
             ))}
@@ -95,7 +92,7 @@ export default function Features() {
           alt="ellipse"
           width={1440}
           height={578}
-          className="relative opacity-50 right-[calc(50%+3rem)] aspect-square w-[36.125rem] translate-x-1/2 sm:right-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          className="relative right-[calc(50%+3rem)] aspect-square w-[36.125rem] translate-x-1/2 opacity-50 sm:right-[calc(50%+36rem)] sm:w-[72.1875rem]"
         />
       </div>
     </section>

@@ -1,13 +1,13 @@
-import HeroSection from '@/components/sections/HeroSection'
+import HeroSection from "@/components/sections/HeroSection";
 import AboutUsSection from "@/components/sections/AbousUsSection";
 import Features from "@/components/sections/Features";
 
 export default function Landing() {
-   return (
+  return (
     <div>
-      <HeroSection/>
+      <HeroSection />
       <Features />
-      <AboutUsSection/>
+      <AboutUsSection />
     </div>
   );
 }

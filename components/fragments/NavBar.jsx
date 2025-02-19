@@ -1,36 +1,37 @@
-import Image from 'next/image'
-import HamburgerMenu from './HamburgerMenu'
+import Image from "next/image";
+import HamburgerMenu from "./HamburgerMenu";
+import { Button } from "@heroui/react";
 
 const NavBar = () => {
-  const navLinks = ['Home', 'Events', 'About', 'Contact Us']
+  const navLinks = ["Home", "Events", "About", "Contact Us"];
   return (
-    <nav className="p-4 md:w-[95%] lg:w-[90%] md:mx-auto flex items-center justify-between">
+    <nav className="flex items-center justify-between p-4 md:mx-auto md:w-[95%] lg:w-[90%]">
       <a href="/">
         <Image
-          src={'/navlogo.svg'}
+          src={"/navlogo.svg"}
           width={153}
           height={40}
           alt="Logo"
-          className="w-[153px] h-[40px] md:w-[203px] md:h-[35px] cursor-pointer"
+          className="h-[40px] w-[153px] cursor-pointer md:h-[35px] md:w-[203px]"
         />
       </a>
-      <div className="hidden md:flex bg-[#ABBEC9] bg-opacity-50 px-2 py-1 rounded-xl items-center justify-between min-w-fit gap-3">
+      <div className="hidden min-w-fit items-center justify-between gap-3 rounded-xl bg-[#ABBEC9] bg-opacity-50 px-2 py-1 md:flex">
         {navLinks.map((item) => (
           <a
             key={item}
             href={`/${item.toLowerCase()}`}
-            className="py-1 px-2 hover:bg-[#ABBEC9] hover:bg-opacity-90 rounded-md transition-colors duration-200"
+            className="rounded-md px-2 py-1 transition-colors duration-200 hover:bg-[#ABBEC9] hover:bg-opacity-90"
           >
             {item}
           </a>
         ))}
       </div>
-      <button className="bg-[#6DA27D] ml-4 rounded-lg py-2 px-4 text-white hover:scale-105 hover:shadow-lg transition-all duration-200 hidden md:block">
+      <Button className="ml-4 hidden rounded-lg bg-[#6DA27D] px-4 py-2 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg md:block">
         Register
-      </button>
+      </Button>
       <HamburgerMenu navLinks={navLinks} />
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
