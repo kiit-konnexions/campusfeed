@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export function FeatureCard({id, title, description, icon}) {
   return (
-    <div className="rounded-2xl py-8 px-10 bg-background w-full min-h-fit flex flex-col border-black border-2 items-start justify-between">
+    <div className="rounded-2xl py-8 px-10 bg-background w-full min-h-fit flex flex-col border-[#8690b1] border-2 items-start justify-between">
       <h1 className="text-3xl font-bold">{title}</h1>
       <p className="text-left mt-10 text-xl font-thin text-gray-700">
         {description}
@@ -16,9 +16,9 @@ export function FeatureCard({id, title, description, icon}) {
           height={60}
           width={60}
           alt="icon"
-          className="object-contain shrink-0 p-3 bg-[#8690b1] shadow-inner rounded-2xl mb-4 fill-white"
+          className="object-contain shrink-0 p-3 border-[#8690b1] border-1 bg-gradient-to-tr from-[#8690b1] to-transparent shadow-inner rounded-2xl mb-4 fill-white"
         />
-        <span className="font-bold">
+        <span className="font-semibold">
           FEATURE {id}
         </span>
       </div>

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "John Doe",
+    "subtitle": "Backend Developer",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 2,
+    "title": "Jane Smith",
+    "subtitle": "Frontend Developer",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 3,
+    "title": "Alice Brown",
+    "subtitle": "Full Stack Developer",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 4,
+    "title": "Bob White",
+    "subtitle": "Designer",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 5,
+    "title": "Charlie Black",
+    "subtitle": "Project Manager",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 6,
+    "title": "David Green",
+    "subtitle": "DevOps Engineer",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 7,
+    "title": "Eve Grey",
+    "subtitle": "Data Scientist",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 8,
+    "title": "Frank Orange",
+    "subtitle": "QA Engineer",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 9,
+    "title": "Grace Pink",
+    "subtitle": "Business Analyst",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  },
+  {
+    "id": 10,
+    "title": "Henry Red",
+    "subtitle": "Scrum Master",
+    "image": "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+    "github": "https://github.com"
+  }
+]
