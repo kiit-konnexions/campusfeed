@@ -100,7 +100,7 @@ const MobileFooter = () => (
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white border-[#6DA27D] border-t-0 md:border-t-2">
+    <footer id="contact us" className="w-full bg-white border-[#6DA27D] border-t-0 md:border-t-2">
       <DesktopFooter/>
       <MobileFooter/>
     </footer>

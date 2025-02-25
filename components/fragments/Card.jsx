@@ -7,7 +7,7 @@ const ImageCard = ({ title, subtitle = "subtext", image, github }) => {
       isPressable
       shadow="lg"
       classNames={{
-        base: "bg-[#FCFDFD] border-2 border-[#8690b1] select-none group shrink-0 w-[200px] rounded-xl hover:scale-105 transform-all duration-200 ease-in-out h-full",
+        base: "bg-[#FCFDFD] border-2 border-[#8690b1] select-none group shrink-0 w-[220px] rounded-xl hover:scale-105 transform-all duration-200 ease-in-out h-full",
       }}
     >
       <CardBody className="overflow-visible p-2">
@@ -15,7 +15,7 @@ const ImageCard = ({ title, subtitle = "subtext", image, github }) => {
           <Image
             shadow="sm"
             alt={title}
-            className="h-[180px] w-[180px] object-cover"
+            className="h-[200px] w-[200px] object-cover"
             src={image}
           />
         </div>

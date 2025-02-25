@@ -30,7 +30,7 @@ const eventDate = event.eventDate.split("-");
           <p className="font-medium text-xs sm:text-sm text-gray-700">
             {event.eventLocation}
           </p>
-          <p className="text-xs sm:text-sm text-black/60">Rs.{event.eventPrice}</p>
+          <p className="text-xs sm:text-sm text-black/60">Rs.{event.eventPrize}</p>
         </div>
       </div>
     </div>

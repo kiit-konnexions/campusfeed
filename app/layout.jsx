@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { HeroUIProvider } from "@heroui/react";
-
+import Provider from "./context/Provider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "CampusFeed | Konnexions",
-  description: "Get all the events and updates of your KIIT campus at one place.",
+  description:
+    "Get all the events and updates of your KIIT campus at one place.",
 };
 
 export default function RootLayout({ children }) {
@@ -22,10 +23,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-      <HeroUIProvider>
-        {children}
-      </HeroUIProvider>
+      >
+        <Provider>
+          <HeroUIProvider>{children}</HeroUIProvider>
+        </Provider>
       </body>
     </html>
   );

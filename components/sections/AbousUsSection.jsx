@@ -5,7 +5,7 @@ import Image from "next/image";
 const AboutUsSection = () => {
   return (
     <section
-      id="about-us"
+      id="about"
       className="relative isolate overflow-hidden px-6 lg:px-6"
     >
       <div

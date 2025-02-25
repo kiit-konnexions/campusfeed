@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const HamburgerMenu = ({ navLinks }) => {
+const HamburgerMenu = ({ navLinks, path }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
@@ -74,17 +74,25 @@ const HamburgerMenu = ({ navLinks }) => {
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               className="absolute top-12 right-0 bg-white shadow-lg rounded-lg p-4 w-48 flex flex-col z-50 gap-1"
             >
-              {navLinks.map((item) => (
-                <Link
-                  key={item}
-                  className="px-4 py-1 hover:bg-gray-100 rounded-md transition-colors duration-200"
-                  href={`${item !== 'Home' ? `/${item.toLowerCase()}` : '/'}`}
-                >
-                  {item}
-                </Link>
-              ))}
-              <button className="bg-[#6DA27D] w-[60%] ml-4 my-1 rounded-md py-1 text-white">
-                Register
+              {navLinks
+          .filter((item) => !(path === "events" && item === "Features")) 
+          .map((item) => {
+            const linkPath = path === "events" ? `/#${item.toLocaleLowerCase()}` : `#${item.toLowerCase()}`;
+
+            return (
+              <Link
+                key={item}
+                href={item === "Events" ? "/events" : linkPath} 
+                className="rounded-md px-2 py-1 transition-colors duration-200 hover:bg-[#bdc9d0] hover:bg-opacity-90"
+              >
+                {item}
+              </Link>
+            );
+          })}
+              <button className="bg-[#6DA27D] w-[60%] ml-2 my-1 rounded-md py-1 text-white">
+              <Link href={path === "events" ? "/logout" : "/login"}>
+          {path === "events" ? "Logout" : "Register"}
+        </Link>
               </button>
             </motion.nav>
           </>

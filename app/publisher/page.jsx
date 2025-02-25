@@ -59,7 +59,7 @@ const PublisherPage = () => {
               width={200}
               height={200}
               alt="logo"
-              className="-ml-4 aspect-video pr-2"
+              className="-ml-4 pr-2"
             />
             <span className="pl-3 text-base font-normal">Details Form</span>
           </CardHeader>
@@ -109,7 +109,7 @@ const PublisherPage = () => {
             />
           </div>
 
-          <h3 className="mb-2 font-medium">Event Details</h3>
+          <h3 className="font-medium">Event Details</h3>
           <Divider className="mb-4 bg-[#6DA27D]" />
           <div className="mb-4 grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <Input
@@ -145,15 +145,15 @@ const PublisherPage = () => {
             />
             <Input
               type="text"
-              name="socialLinks"
-              label="Social Media Links"
+              name="socialLink"
+              label="Social Media Link"
               variant="bordered"
               onChange={handleChange}
             />
             <Input
               type="text"
-              name="registrationLinks"
-              label="Registration Links"
+              name="registrationLink"
+              label="Registration Link"
               variant="bordered"
               onChange={handleChange}
               isRequired
