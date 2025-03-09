@@ -7,16 +7,28 @@ const dmSans = DM_Sans({
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
+  { href: "#about", label: "About Us" },
+  { href: "#features", label: "Features" },
   { href: "/events", label: "Events" },
-  { href: "/features", label: "Features" },
-  { href: "/about", label: "About Us" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "#contact us", label: "Contact Us" },
 ];
 
 const SOCIAL_LINKS = [
-  { href: "#", src: "/images/facebook.svg", alt: "Facebook" },
-  { href: "#", src: "/images/instagram.svg", alt: "Instagram" },
-  { href: "#", src: "/images/github.svg", alt: "Github" },
+  {
+    href: "https://www.linkedin.com/company/kiitkonnexions/",
+    src: "/images/linkedin.svg",
+    alt: "LinkedIn",
+  },
+  {
+    href: "https://www.instagram.com/kiitkonnexions/",
+    src: "/images/instagram.svg",
+    alt: "Instagram",
+  },
+  {
+    href: "https://github.com/kiit-konnexions/",
+    src: "/images/github.svg",
+    alt: "Github",
+  },
 ];
 
 const NavLinks = ({ className = "" }) => (
@@ -79,11 +91,13 @@ const DesktopFooter = () => (
 const MobileFooter = () => (
   <div className="px-6 py-8 md:hidden">
     <div className="flex flex-col items-center space-y-6">
-      <img
-        src="/images/campus_feed_logo.svg"
-        alt="Campus Feed Logo"
-        className="max-h-8"
-      />
+      <a href="/">
+        <img
+          src="/images/campus_feed_logo.svg"
+          alt="Campus Feed Logo"
+          className="max-h-8"
+        />
+      </a>
     </div>
     <NavLinks className="mt-8 flex-wrap justify-center gap-6" />
     <SocialLinks className="mt-6 items-center justify-center space-x-8" />
