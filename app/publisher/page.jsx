@@ -18,11 +18,18 @@ import {
 import { formatISO } from "date-fns";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+<<<<<<< HEAD
+import { useState, useEffect } from "react";
+import { FaUpload } from "react-icons/fa";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+=======
 import { useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { EventSchema } from "../../lib/schema";
 import { addEvent } from "./action";
 import { toast, Toaster } from "sonner";
+>>>>>>> origin/master
 
 const PublisherForm = () => {
   const formRef = useRef(null);
@@ -96,6 +103,27 @@ const PublisherForm = () => {
     );
   };
 
+<<<<<<< HEAD
+  return { handleChange, handleSubmit };
+};
+
+const PublisherPage = () => {
+  const { handleChange, handleSubmit } = detailsForm();
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+=======
+>>>>>>> origin/master
   return (
     <>
       <Toaster richColors position="top-center" />
