@@ -20,9 +20,9 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { toast, Toaster } from "sonner";
 import { EventSchema } from "../../lib/schema";
 import { addEvent } from "./action";
-import { toast, Toaster } from "sonner";
 
 const PublisherForm = () => {
   const formRef = useRef(null);
@@ -245,6 +245,31 @@ const PublisherForm = () => {
                 isRequired
                 isInvalid={!!errors.registrationLinks}
                 errorMessage="Enter a valid Registration Link"
+              />
+              <Input
+                {...register("guideLinePdfLink", {
+                  required: false,
+                })}
+                validate={(value) => {
+                  if (!value) return null;
+
+                  // check if socialLinks is a valid url
+                  const urlRegex =
+                    /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+
+                  if (!urlRegex.test(value)) {
+                    return "Enter a valid Guideline PDF Link";
+                  }
+
+                  return null;
+                }}
+                type="text"
+                name="guideLinePdfLink"
+                label="Guideline PDF Link"
+                variant="bordered"
+                // isRequired
+                isInvalid={!!errors.guideLinePdfLink}
+                errorMessage="Enter a valid Guideline PDF Link"
               />
               <Input
                 {...register("image")}
