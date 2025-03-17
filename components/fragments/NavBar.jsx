@@ -32,8 +32,8 @@ const NavBar = () => {
           .filter((item) => !(path === "events" && item === "Features"))
           .map((item) => {
             const linkPath =
-              path === "events" || path === "publisher"
-                ? `/#${item.toLocaleLowerCase()}`
+              path === "events" || path === "publish"
+                ? `/${item.toLocaleLowerCase()}`
                 : `#${item.toLowerCase()}`;
 
             return (
@@ -42,7 +42,7 @@ const NavBar = () => {
                 href={
                   item === "Events"
                     ? "/events"
-                    : item === "Publisher"
+                    : item === "Publish"
                       ? "/publisher"
                       : linkPath
                 }

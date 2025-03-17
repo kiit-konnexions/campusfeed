@@ -1,7 +1,7 @@
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Download, Link, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 const EventModal = ({ isModalOpen, selectedEvent, closeModal }) => {
   const formatEventDate = (dateStr) => {
@@ -49,7 +49,7 @@ const EventModal = ({ isModalOpen, selectedEvent, closeModal }) => {
                 className="min-w-fit"
               >
                 <Image
-                  src={`/${selectedEvent.eventPoster}`}
+                  src={selectedEvent.eventPoster}
                   height={280}
                   width={280}
                   alt={selectedEvent.eventName}
@@ -89,19 +89,32 @@ const EventModal = ({ isModalOpen, selectedEvent, closeModal }) => {
                 </p>
 
                 <p className="my-1 font-semibold">Description</p>
-                <p className="mb-1 text-sm font-medium leading-[15px] opacity-[70%]">
-                  {selectedEvent.eventDescription ||
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
-                </p>
+                <p
+                  className="mb-1 text-sm font-medium leading-[15px] opacity-[70%]"
+                  dangerouslySetInnerHTML={{
+                    __html: selectedEvent.eventDescription,
+                  }}
+                ></p>
                 <div className="mt-1 flex space-x-4">
-                  <motion.button className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#6DA27D] p-3 text-center font-semibold text-white hover:bg-[#6DA27D]/90 md:mt-2 lg:mt-5 lg:w-fit">
-                    Register Link <Link className="h-5 w-5" />
+                  <motion.button
+                    className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#6DA27D] p-3 text-center font-semibold text-white hover:bg-[#6DA27D]/90 md:mt-2 lg:mt-5 lg:w-fit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      redirect(selectedEvent.registrationLink);
+                    }}
+                  >
+                    Register Link
+                    <Link className="h-5 w-5" />
                   </motion.button>
 
                   <motion.button
                     className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#6DA27D] p-3 text-center font-semibold text-white hover:bg-[#6DA27D]/90 md:mt-2 lg:mt-5 lg:w-fit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      redirect(selectedEvent?.guideLinePdfLink ?? "#");
+                    }}
                   >
                     Download PDF <Download className="h-5 w-5" />
                   </motion.button>
