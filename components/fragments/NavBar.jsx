@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import HamburgerMenu from "./HamburgerMenu";
 
 const NavBar = () => {
-  const session = useSession();
   const navLinks = [
     "Home",
     session.status === "unauthenticated" ? "Events" : "Publish",
@@ -15,6 +14,7 @@ const NavBar = () => {
     "Contact Us",
   ];
   const path = usePathname().split("/")[1];
+  const { data: session, status } = useSession();
 
   return (
     <nav className="fixed top-0 z-20 flex w-full items-center justify-between bg-white p-4 lg:px-16">
