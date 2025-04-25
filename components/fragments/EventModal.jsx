@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, Link, X } from "lucide-react";
 import Image from "next/image";
-import { redirect } from "next/navigation";
 
 const EventModal = ({ isModalOpen, selectedEvent, closeModal }) => {
   const formatEventDate = (dateStr) => {
@@ -9,7 +8,7 @@ const EventModal = ({ isModalOpen, selectedEvent, closeModal }) => {
     const day = parts[1];
     const month = parts[2];
     const year = new Date().getFullYear();
-    return `${day}/${month}/${year}`;
+    return `${day} ${month} ${year}`;
   };
 
   return (
@@ -68,9 +67,10 @@ const EventModal = ({ isModalOpen, selectedEvent, closeModal }) => {
                 </p>
 
                 <p className="my-1 font-semibold">
-                  Date:{" "}
+                  Date & Time:{" "}
                   <span className="font-normal opacity-[70%]">
-                    {formatEventDate(selectedEvent.eventDate)}
+                    {formatEventDate(selectedEvent.eventDate)} -{" "}
+                    {formatEventDate(selectedEvent.eventEndDate)}
                   </span>
                 </p>
 
@@ -101,7 +101,7 @@ const EventModal = ({ isModalOpen, selectedEvent, closeModal }) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
-                      redirect(selectedEvent.registrationLink);
+                      window.open(selectedEvent.registrationLink, "_blank");
                     }}
                   >
                     Register Link
@@ -113,7 +113,10 @@ const EventModal = ({ isModalOpen, selectedEvent, closeModal }) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
-                      redirect(selectedEvent?.guideLinePdfLink ?? "#");
+                      window.open(
+                        selectedEvent?.guideLinePdfLink ?? "#",
+                        "_blank",
+                      );
                     }}
                   >
                     Download PDF <Download className="h-5 w-5" />

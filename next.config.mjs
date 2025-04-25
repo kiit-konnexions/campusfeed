@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: "drive.usercontent.google.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "img.freepik.com",
+        pathname: "**",
+      },
     ],
   },
 };

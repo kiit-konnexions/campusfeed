@@ -4,17 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import HamburgerMenu from "./HamburgerMenu";
+import { signOut } from "next-auth/react";
 
 const NavBar = () => {
   const { data: session, status } = useSession();
 
-  const navLinks = [
-    "Home",
-    status === "unauthenticated" ? "Events" : "Publish",
-    "Features",
-    "About",
-    "Contact Us",
-  ];
+  const navLinks = ["Home", "Events", "Features", "About", "Contact Us"];
+  if (status === "authenticated") {
+    navLinks.push("Publish");
+  }
+
   const path = usePathname().split("/")[1];
 
   return (
@@ -34,7 +33,7 @@ const NavBar = () => {
           .map((item) => {
             const linkPath =
               path === "events" || path === "publish"
-                ? `/${item.toLocaleLowerCase()}`
+                ? `/#${item.toLocaleLowerCase()}`
                 : `#${item.toLowerCase()}`;
 
             return (
@@ -54,10 +53,17 @@ const NavBar = () => {
             );
           })}
       </div>
-      <button className="ml-4 hidden rounded-lg bg-[#6DA27D] px-4 py-2 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg lg:block">
-        <Link href={status === "unauthenticated" ? "/login" : "/logout"}>
-          {status === "unauthenticated" ? "Register" : "Logout"}
-        </Link>
+      <button
+        className="ml-4 hidden rounded-lg bg-[#6DA27D] px-4 py-2 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg lg:block"
+        onClick={() => {
+          if (status === "authenticated") {
+            signOut({ callbackUrl: "/" });
+          } else {
+            window.location.href = "/login"; // Replace router.push with window.location.href
+          }
+        }}
+      >
+        {status === "unauthenticated" ? "Register" : "Logout"}
       </button>
       <HamburgerMenu navLinks={navLinks} path={path} />
     </nav>

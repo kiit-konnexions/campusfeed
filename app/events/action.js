@@ -31,6 +31,9 @@ export async function getEvents() {
     data: { eventModels },
   } = await graphQLclient.query({
     query: GET_EVENTS,
+    headers: {
+      Authorization: `Bearer ${process.env.HYGRAPH_API_TOKEN}`,
+    },
   });
 
   const events = eventModels.map((record) => {
@@ -39,6 +42,15 @@ export async function getEvents() {
       eventName: record.title,
       eventLocation: record.venue,
       eventDate: new Date(record.start)
+        .toLocaleString("en-GB", {
+          weekday: "short",
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        })
+        .replace(",", "")
+        .replaceAll(" ", "-"),
+      eventEndDate: new Date(record.end)
         .toLocaleString("en-GB", {
           weekday: "short",
           day: "2-digit",

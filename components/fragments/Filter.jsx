@@ -104,8 +104,8 @@ const Filter = ({
                       onChange={handlePriceChange}
                       formatOptions={{ style: "currency", currency: "INR" }}
                       label="Price Range"
-                      maxValue={1000}
-                      minValue={100}
+                      maxValue={100000}
+                      minValue={1000}
                       step={50}
                       size="sm"
                     />
