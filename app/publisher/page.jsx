@@ -18,11 +18,11 @@ import {
 import { formatISO } from "date-fns";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { redirect } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { toast, Toaster } from "sonner";
 import { EventSchema } from "../../lib/schema";
+import { addEvent } from "./action";
 
 const detailsForm = () => {
   const formRef = useRef(null);
@@ -39,8 +39,8 @@ const detailsForm = () => {
   const onSubmit = async (data) => {
     console.log("submitted", data);
     setIsSubmitting(true);
-    // const result = await addEvent(data);
-    // console.log(result);
+    const result = await addEvent(data);
+    console.log(result);
 
     if (result.success) {
       formRef.current.reset();
@@ -126,7 +126,7 @@ const PublisherPage = () => {
 
   useEffect(() => {
     if (status === "unauthenticated") {
-      redirect("/login");
+      // redirect("/login");
     }
   }, [status]);
 
@@ -138,7 +138,7 @@ const PublisherPage = () => {
         className="min-h-screen w-full bg-gradient-to-br from-[#e8f5e9] via-[#e3f2fd] to-[#f3e5f5] px-2 py-10"
       >
         <Card className="mx-auto w-full max-w-4xl items-center justify-center rounded-2xl bg-[#fcfdfd] p-6 shadow-2xl backdrop-blur-sm">
-          <Form ref={formRef} onSubmit={() => handleSubmit(onSubmit)}>
+          <Form ref={formRef} onSubmit={handleSubmit(onSubmit)}>
             <CardHeader className="items-center space-x-2 divide-x-2 divide-[#6DA27D]">
               <Image
                 src="navlogo.svg"
